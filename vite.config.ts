@@ -10,13 +10,16 @@ export default defineConfig({
       outdir: "./src/paraglide",
       strategy: ["url", "cookie", "baseLocale"],
       disableAsyncLocalStorage: true,
-      urlPatterns: [{
-        pattern: ":protocol://:domain(.*)::port?/:path(.*)?",
-        localized: [
-          ["fr", ":protocol://:domain(.*)::port?/fr/:path(.*)?"],
-          ["en", ":protocol://:domain(.*)::port?/en/:path(.*)?"]
-        ],
-      }]
-    }),
+      urlPatterns: [
+        {
+          pattern: "/:path(.*)?",
+          localized: [
+            ["de", "/de/:path(.*)?"],
+            ["en", "/en/:path(.*)?"],
+            ["fr", "/fr/:path(.*)?"],
+          ],
+        },
+      ],
+    })
   ],
 });
